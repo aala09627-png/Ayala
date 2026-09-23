@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Жеке Портфолио | Жалғасбай Аяла</title>
+    
+    <!-- Google Fonts: Inter & Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome CDN Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ==========================================
+           1. CSS ӨЗГЕРМЕЛІЛЕРІ ЖӘНЕ НЕГІЗГІ СТИЛЬДЕР
+           ========================================== */
+        :root {
+            --primary: #2563eb;          /* Негізгі көк түс */
+            --primary-hover: #1d4ed8;    /* Түймені меңзегендегі түс */
+            --primary-light: #eff6ff;    /* Пастельді ашық көк түс */
+            --dark: #0f172a;             /* Қанық қою түс (Мәтіндер үшін) */
+            --slate: #334155;            /* Негізгі мәтін түсі */
+            --muted: #64748b;            /* Өңсіз мәтін түсі */
+            --bg-light: #f8fafc;         /* Ашық сұр фон */
+            --card-bg: #ffffff;         /* Карточкалар фоны */
+            --border: #e2e8f0;           /* Шектеу сызықтарының түсі */
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--slate);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, .logo {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ==========================================
+           2. НИВЕГАЦИЯЛЫҚ ПАНЕЛЬ (NAVBAR)
+           ========================================== */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 16px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-link {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--slate);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        /* ==========================================
+           3. БАС БӨЛІК (HERO SECTION)
+           ========================================== */
+        .hero {
+            padding: 80px 0 60px;
+            background: linear-gradient(135deg, #eff6ff 0%, #f8fafc 100%);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .badge-title {
+            display: inline-block;
+            background-color: #dbeafe;
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+        }
+
+        .hero-text h1 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .hero-desc {
+            font-size: 1.05rem;
+            color: var(--muted);
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: #ffffff;
+            border: 2px solid var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            border-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--slate);
+            border: 2px solid var(--border);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .hero-avatar-wrapper {
+            position: relative;
+        }
+
+        .hero-avatar {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid #ffffff;
+            box-shadow: var(--shadow-lg);
+            background-color: #cbd5e1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted);
+            font-size: 5rem;
+        }
+
+        /* ==========================================
+           4. ЖАЛПЫ БӨЛІМ СТИЛЬДЕРІ (SECTIONS)
+           ========================================== */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-alt {
+            background-color: #ffffff;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 4px;
+            background-color: var(--primary);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        /* ==========================================
+           5. МЕН ТУРАЛЫ (ABOUT ME)
+           ========================================== */
+        .about-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 36px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .about-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--slate);
+            margin-bottom: 24px;
+        }
+
+        .about-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 24px;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 16px;
+            background-color: var(--primary-light);
+            border-radius: var(--radius-sm);
+        }
+
+        .highlight-item i {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .highlight-item div strong {
+            display: block;
+            color: var(--dark);
+            font-size: 0.95rem;
+        }
+
+        .highlight-item div span {
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        /* ==========================================
+           6. БІЛІМІ МЕН ТӘЖІРИБЕСІ (EDUCATION & EXP)
+           ========================================== */
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .timeline-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 30px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .box-heading {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.25rem;
+            margin-bottom: 24px;
+            color: var(--dark);
+        }
+
+        .box-heading i {
+            color: var(--primary);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 20px;
+            border-left: 2px solid var(--border);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 24px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -26px;
+            top: 4px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            border: 2px solid #ffffff;
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .timeline-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 4px;
+        }
+
+        .timeline-institution {
+            font-size: 0.9rem;
+            color: var(--muted);
+            margin-bottom: 8px;
+        }
+
+        .timeline-desc {
+            font-size: 0.9rem;
+            color: var(--slate);
+        }
+
+        /* ==========================================
+           7. ДАҒДЫЛАР МЕН ҚҰРАЛДАР (SKILLS & TOOLS)
+           ========================================== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .skill-category-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .skill-category-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--dark);
+        }
+
+        .skill-category-title i {
+            color: var(--primary);
+        }
+
+        .badges-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            background-color: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--slate);
+            transition: var(--transition);
+        }
+
+        .badge:hover {
+            background-color: var(--primary-light);
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .badge i {
+            font-size: 1rem;
+            color: var(--primary);
+        }
+
+        /* ==========================================
+           8. ЖОБАЛАР / ПО РТФОЛИО (PROJECTS)
+           ========================================== */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .project-img-placeholder {
+            width: 100%;
+            height: 190px;
+            background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted);
+            font-size: 0.88rem;
+            gap: 8px;
+        }
+
+        .project-img-placeholder i {
+            font-size: 2.2rem;
+        }
+
+        .project-body {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .project-tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            border-radius: 12px;
+        }
+
+        .project-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+
+        .project-desc {
+            font-size: 0.9rem;
+            color: var(--muted);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .project-link:hover {
+            gap: 10px;
+        }
+
+        /* ==========================================
+           9. БАЙЛАНЫС ДЕРЕКТЕРІ (CONTACT)
+           ========================================== */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-info-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 32px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 24px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .contact-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details span {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        .contact-details a, .contact-details p {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .contact-details a:hover {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .social-btn {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background-color: var(--bg-light);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--slate);
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+
+        .social-btn:hover {
+            background-color: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* ==========================================
+           10. ТӨМЕНГІ БӨЛІК (FOOTER)
+           ========================================== */
+        footer {
+            background-color: var(--dark);
+            color: #94a3b8;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.9rem;
+            border-top: 1px solid #1e293b;
+        }
+
+        footer p {
+            margin-top: 6px;
+        }
+
+        /* ==========================================
+           11. МОБИЛЬДІ БЕЙІМДЕЛУ (RESPONSIVE)
+           ========================================== */
+        @media (max-width: 992px) {
+            .grid-2col, .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .hero-desc {
+                margin: 0 auto 30px;
+            }
+
+            .hero-actions {
+                justify-content: center;
+            }
+
+            .hero-avatar {
+                width: 180px;
+                height: 180px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .section {
+                padding: 50px 0;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .about-card, .timeline-box, .contact-info-card {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-graduation-cap"></i>
+                Жалғасбай Аяла
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-link">Мен туралы</a></li>
+                <li><a href="#education" class="nav-link">Білім мен Тәжірибе</a></li>
+                <li><a href="#skills" class="nav-link">Дағдылар</a></li>
+                <li><a href="#projects" class="nav-link">Жобалар</a></li>
+                <li><a href="#contact" class="nav-link">Байланыс</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Бас бөлік (Hero Section) -->
+    <header class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <span class="badge-title">Портфолио & Виз карточка</span>
+                <h1>Жалғасбай Аяла</h1>
+                <div class="hero-subtitle">Бастауыш пәні мұғалімі</div>
+                <p class="hero-desc">
+                    [Мақсаты / Қысқаша ақпарат]: Заманауи педагогикалық әдістер мен цифрлық технологияларды ұштастыра отырып, бастауыш сынып оқушыларының қызығушылығын арттыру және сапалы білім беруге ұмтылатын жас маман.
+                </p>
+                <div class="hero-actions">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        Хабарласу
+                    </a>
+                    <a href="#projects" class="btn btn-outline">
+                        <i class="fa-solid fa-briefcase"></i>
+                        Жобаларды көру
+                    </a>
+                </div>
+            </div>
+            <div class="hero-avatar-wrapper">
+                <!-- Осы жерге аватарт суретіңізді қоюға болады: <img src="ваша-ссылка.jpg" alt="Жалғасбай Аяла" class="hero-avatar"> -->
+                <div class="hero-avatar">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Мен туралы -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Мен туралы</h2>
+                <p class="section-subtitle">Кәсіби ұстанымым мен негізгі ақпарат</p>
+            </div>
+            <div class="about-card">
+                <p class="about-text">
+                    [Мақсаты / Қысқаша ақпарат]: Мен бастауыш сынып оқушыларына сапалы, қызықты әрі заманауи бағытта білім беруді мақсат етемін. Сабақ өту барысында интерактивті әдістерді, цифрлық білім беру ресурстарын (Canva, Wix, т.б.) жиі қолданамын. Әрбір баланың жеке қабілетін ашуға, шығармашылық ойлауын дамытуға ерекше көңіл бөлемін.
+                </p>
+                <div class="about-highlights">
+                    <div class="highlight-item">
+                        <i class="fa-solid fa-book-bookmark"></i>
+                        <div>
+                            <strong>Мамандығым</strong>
+                            <span>Бастауыш білім беру</span>
+                        </div>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fa-solid fa-laptop-code"></i>
+                        <div>
+                            <strong>Цифрлық сауаттылық</strong>
+                            <span>Интерактивті құралдар</span>
+                        </div>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fa-solid fa-lightbulb"></i>
+                        <div>
+                            <strong>Педагогикалық тәсіл</strong>
+                            <span>Инклюзивті & Шығармашылық</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Білімі мен Тәжірибесі -->
+    <section id="education" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Білімі мен Тәжірибесі</h2>
+                <p class="section-subtitle">Оқу жолым мен педагогикалық тәжірибелерім</p>
+            </div>
+            <div class="grid-2col">
+                <!-- Білімі -->
+                <div class="timeline-box">
+                    <h3 class="box-heading">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        Білімі
+                    </h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">[Оқу жылы, мысалы: 2022 - 2026]</div>
+                            <h4 class="timeline-title">[Бастауыш білім беру педагогикасы]</h4>
+                            <div class="timeline-institution">[М. Мәметова атындағы Қызылорда педагогикалық жоғары колледжі]</div>
+                            <p class="timeline-desc">[Білімі]: Бастауыш сынып мұғалімі квалификациясы бойынша білім алудамын. Теориялық педагогика, психология және пәндерді оқыту методикасын тереңдетіп меңгердім.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Тәжірибесі -->
+                <div class="timeline-box">
+                    <h3 class="box-heading">
+                        <i class="fa-solid fa-briefcase"></i>
+                        Тәжірибесі
+                    </h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">[Уақыты, мысалы: 2025 - Қазіргі уақыт]</div>
+                            <h4 class="timeline-title">[Педагогикалық практика & Жобалар]</h4>
+                            <div class="timeline-institution">[Мектеп / Педагогикалық база]</div>
+                            <p class="timeline-desc">[Тәжірибесі / Жобалары]: Мектепте өндірістік практикадан өту, ашық сабақтар ұйымдастыру, электронды оқу материалдары мен интерактивті көрнекіліктер дайындау.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Дағдылар мен Құралдар -->
+    <section id="skills" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Дағдылар & Құралдар</h2>
+                <p class="section-subtitle">Кәсіби дағдыларым мен қолданатын бағдарламаларым</p>
+            </div>
+            <div class="skills-grid">
+                <!-- Кәсіби дағдылар -->
+                <div class="skill-category-card">
+                    <h3 class="skill-category-title">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                        Педагогикалық дағдылар
+                    </h3>
+                    <div class="badges-container">
+                        <span class="badge"><i class="fa-solid fa-check"></i> Бастауыш методикасы</span>
+                        <span class="badge"><i class="fa-solid fa-check"></i> Интерактивті оқыту</span>
+                        <span class="badge"><i class="fa-solid fa-check"></i> Сабақ жоспарлау</span>
+                        <span class="badge"><i class="fa-solid fa-check"></i> Көрнекілік дайындау</span>
+                        <span class="badge"><i class="fa-solid fa-check"></i> Бағалау критерийлері</span>
+                    </div>
+                </div>
+
+                <!-- Цифрлық құралдар -->
+                <div class="skill-category-card">
+                    <h3 class="skill-category-title">
+                        <i class="fa-solid fa-laptop-code"></i>
+                        Цифрлық құралдар
+                    </h3>
+                    <div class="badges-container">
+                        <span class="badge"><i class="fa-brands fa-canva"></i> Canva</span>
+                        <span class="badge"><i class="fa-solid fa-globe"></i> Wix.com</span>
+                        <span class="badge"><i class="fa-solid fa-palette"></i> ibisPaint X</span>
+                        <span class="badge"><i class="fa-solid fa-mobile-screen"></i> MIT App Inventor</span>
+                        <span class="badge"><i class="fa-solid fa-cube"></i> COMPAS-3D</span>
+                        <span class="badge"><i class="fa-solid fa-file-powerpoint"></i> MS Office</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Портфолио / Жобалар -->
+    <section id="projects" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Жобалар & Портфолио</h2>
+                <p class="section-subtitle">Әзірлеген білім беру материалдары мен цифрлық жұмыстарым</p>
+            </div>
+            <div class="projects-grid">
+                
+                <!-- Жоба 1 -->
+                <div class="project-card">
+                    <div class="project-img-placeholder">
+                        <i class="fa-solid fa-globe"></i>
+                        <span>[Сурет орны / Wix Сайт]</span>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-tags">
+                            <span class="project-tag">Wix.com</span>
+                            <span class="project-tag">2-сынып</span>
+                        </div>
+                        <h3 class="project-title">[Қазақ тілі веб-сайты]</h3>
+                        <p class="project-desc">[Тәжірибесі / Жобалары]: Бастауыш сынып оқушыларына арналған қазақ тілі пәні бойынша интерактивті оқу сайтының макеті мен материалдары.</p>
+                        <a href="#" class="project-link">Толығырақ көру <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Жоба 2 -->
+                <div class="project-card">
+                    <div class="project-img-placeholder">
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+                        <span>[Сурет орны / App UI]</span>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-tags">
+                            <span class="project-tag">Canva</span>
+                            <span class="project-tag">App Design</span>
+                        </div>
+                        <h3 class="project-title">[Оқу қолданбасының интерфейсі]</h3>
+                        <p class="project-desc">[Тәжірибесі / Жобалары]: Бастауыш сынып пәндеріне арналған мобильді қосымшаның интерфейс дизайны мен графикалық элементтері.</p>
+                        <a href="#" class="project-link">Толығырақ көру <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Жоба 3 -->
+                <div class="project-card">
+                    <div class="project-img-placeholder">
+                        <i class="fa-solid fa-file-powerpoint"></i>
+                        <span>[Сурет орны / Постер]</span>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-tags">
+                            <span class="project-tag">Педагогика</span>
+                            <span class="project-tag">Көрнекілік</span>
+                        </div>
+                        <h3 class="project-title">[Интерактивті сабақ постері]</h3>
+                        <p class="project-desc">[Тәжірибесі / Жобалары]: Оқушылардың сабаққа деген ынтасын арттыру мақсатында жасалған көрнекіліктер мен презентациялар жинағы.</p>
+                        <a href="#" class="project-link">Толығырақ көру <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Байланыс -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Байланыс</h2>
+                <p class="section-subtitle">Кері байланыс немесе ынтымақтастық үшін</p>
+            </div>
+            <div class="contact-container">
+                
+                <div class="contact-info-card">
+                    <h3>Байланыс деректері</h3>
+                    <p style="color: var(--muted); margin-top: 6px;">Кез келген сұрақтар немесе ұсыныстар бойынша хабарласа аласыз:</p>
+                    
+                    <div class="contact-list">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <span>Телефон:</span>
+                                <a href="tel:+77000000000">[Телефон нөміріңіз]</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <span>Email пошта:</span>
+                                <a href="mailto:example@gmail.com">[Электронды поштаңыз]</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div class="contact-details">
+                                <span>Орналасқан жері:</span>
+                                <p>[Қазақстан, Қызылорда қаласы]</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" class="social-btn" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="#" class="social-btn" title="Telegram"><i class="fa-brands fa-telegram"></i></a>
+                        <a href="#" class="social-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Қарапайым хабарлама жіберу формасы -->
+                <div class="contact-info-card">
+                    <h3>Хабарлама қалдыру</h3>
+                    <form style="margin-top: 20px; display: flex; flex-direction: column; gap: 14px;" onsubmit="event.preventDefault(); alert('Хабарламаңыз қабылданды!');">
+                        <input type="text" placeholder="Аты-жөніңіз" required style="width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: var(--radius-sm); font-family: inherit;">
+                        <input type="email" placeholder="Email поштаңыз" required style="width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: var(--radius-sm); font-family: inherit;">
+                        <textarea rows="4" placeholder="Хабарламаңыз..." required style="width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: var(--radius-sm); font-family: inherit; resize: vertical;"></textarea>
+                        <button type="submit" class="btn btn-primary" style="justify-content: center; width: 100%;">
+                            <i class="fa-solid fa-paper-plane"></i> Жіберу
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Жалғасбай Аяла. Барлық құқықтар қорғалған.</p>
+            <p>Бастауыш пәні мұғалімінің жеке портфолио сайты</p>
+        </div>
+    </footer>
+
+</body>
+</html>
